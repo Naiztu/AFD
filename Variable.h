@@ -36,7 +36,7 @@ int Variable::isVariable(string text, int index)
                 state = q2;
             break;
         case q1:
-            if (isalpha(text[i]) || text[i] == '_')
+            if (isalpha(text[i]) || text[i] == '_' || isdigit(text[i]))
                 i++;
             else
                 state = q2;
