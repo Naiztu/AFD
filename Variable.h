@@ -44,7 +44,7 @@ int Variable::isVariable(string text, int index)
         }
     }
     (i != index) &&
-        cout << "Variable: " << text.substr(index, i - index) << endl;
+        cout << "Variable : " << text.substr(index, i - index) << endl;
     return i;
 }
 

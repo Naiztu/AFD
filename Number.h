@@ -36,11 +36,13 @@ int Number::isNumber(string text, int index)
             state = q1;
             if (text[i] == '-' || text[i] == '.')
             {
+                if (text[i] == '.')
+                    numFloat = true;
                 i++;
                 if (!isdigit(text[i]))
                 {
                     state = q7;
-                    cout << "Error in Line: " << text << endl;
+                    cout << "Error in Line : " << text << endl;
                 }
             }
             break;
@@ -49,7 +51,7 @@ int Number::isNumber(string text, int index)
                 state = q2;
             else
             {
-                cout << "Error in Line: " << text << endl;
+                cout << "Error in Line : " << text << endl;
                 state = q7;
             }
             break;
@@ -78,7 +80,7 @@ int Number::isNumber(string text, int index)
             else
             {
                 state = q7;
-                cout << "Error in Line: " << text << endl;
+                cout << "Error in Line : " << text << endl;
             }
             break;
         case q4:
@@ -93,7 +95,7 @@ int Number::isNumber(string text, int index)
                     if (!isdigit(text[i]))
                     {
                         state = q7;
-                        cout << "Error in Line: " << text << endl;
+                        cout << "Error in Line : " << text << endl;
                     }
                     else
                         state = q3;
@@ -101,13 +103,13 @@ int Number::isNumber(string text, int index)
                 else
                 {
                     state = q7;
-                    cout << "Error in Line: " << text << endl;
+                    cout << "Error in Line : " << text << endl;
                 }
             }
             else
             {
                 state = q7;
-                cout << "Error in Line: " << text << endl;
+                cout << "Error in Line : " << text << endl;
             }
             break;
         case q5:
@@ -145,7 +147,7 @@ int Number::isNumber(string text, int index)
         if (numFloat)
             cout << "Real : " << text.substr(index, i - index) << endl;
         else
-            cout << "Entero: " << text.substr(index, i - index) << endl;
+            cout << "Entero : " << text.substr(index, i - index) << endl;
     }
     return i;
 }

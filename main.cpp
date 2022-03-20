@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 #include "Variable.h"
@@ -7,8 +8,6 @@ using namespace std;
 
 int main()
 {
-    string example = "d = a ^ b // Esto es un comentario";
-
     Variable val = Variable();
     Number num = Number();
     Simbolo sim = Simbolo();
@@ -22,33 +21,52 @@ int main()
     };
     TStatus state;
     state = q0;
-    int index = 0;
-    while (index != example.size())
+
+    string fileinput = "", line = "";
+    cout << "Nombre del archivo (con extension .txt): ";
+    cin >> fileinput;
+    fstream file = fstream(fileinput);
+    int numline = 1;
+    if (".txt" != fileinput.substr(fileinput.size() - 4))
     {
-        switch (state)
+        cout << "EL archivo tiene que ser de tipo .txt";
+    }
+    else if (file.is_open())
+    {
+        while (!file.eof())
         {
-        case q0:
-            if (isdigit(example[index]))
-                state = q1;
-            else if (example[index] == ' ')
-                index++;
-            else if (isalpha(example[index]))
-                state = q2;
-            else
-                state = q3;
-            break;
-        case q1:
-            index = num.isNumber(example, index);
-            state = q0;
-            break;
-        case q2:
-            index = val.isVariable(example, index);
-            state = q0;
-            break;
-        case q3:
-            index = sim.isSimbolo(example, index);
-            state = q0;
-            break;
+            int index = 0;
+            getline(file, line);
+            line.size() != 0 && cout << "\nLINE " << numline << endl;
+            numline++;
+            while (index != line.size())
+            {
+                switch (state)
+                {
+                case q0:
+                    if (isdigit(line[index]))
+                        state = q1;
+                    else if (line[index] == ' ')
+                        index++;
+                    else if (isalpha(line[index]))
+                        state = q2;
+                    else
+                        state = q3;
+                    break;
+                case q1:
+                    index = num.isNumber(line, index);
+                    state = q0;
+                    break;
+                case q2:
+                    index = val.isVariable(line, index);
+                    state = q0;
+                    break;
+                case q3:
+                    index = sim.isSimbolo(line, index);
+                    state = q0;
+                    break;
+                }
+            }
         }
     }
     return 0;

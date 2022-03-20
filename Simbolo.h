@@ -20,19 +20,19 @@ int Simbolo::isSimbolo(string text, int index)
     {
     case '=':
         i++;
-        cout << "Asignacion: =" << endl;
+        cout << "Asignacion : =" << endl;
         break;
     case '(':
         i++;
-        cout << "Paréntesis que abre: (" << endl;
+        cout << "Parentesis que abre : (" << endl;
         break;
     case ')':
         i++;
-        cout << "Paréntesis que cierra: )" << endl;
+        cout << "Parentesis que cierra : )" << endl;
         break;
     case '*':
         i++;
-        cout << "Multiplicación: *" << endl;
+        cout << "Multiplicacion : *" << endl;
         break;
     case '/':
         i++;
@@ -42,24 +42,29 @@ int Simbolo::isSimbolo(string text, int index)
             i = text.size();
         }
         else
-            cout << "División: /" << endl;
+            cout << "Division : /" << endl;
         break;
     case '+':
         i++;
-        cout << "Suma: +" << endl;
+        cout << "Suma : +" << endl;
         break;
     case '-':
         i++;
         if (isdigit(text[i]))
-        {
             i = num.isNumber(text, index);
-        }
         else
-            cout << "Resta: -" << endl;
+            cout << "Resta : -" << endl;
         break;
     case '^':
         i++;
-        cout << "Potencia: ^" << endl;
+        cout << "Potencia : ^" << endl;
+        break;
+    case '.':
+        i++;
+        if (isdigit(text[i]))
+            i = num.isNumber(text, index);
+        else
+            cout << "Punto : ." << endl;
         break;
     }
     return i;
