@@ -6,9 +6,6 @@ using namespace std;
 
 class Number
 {
-private:
-    bool nextIsNumber(char);
-
 public:
     Number(){};
     int isNumber(string, int);
@@ -143,8 +140,13 @@ int Number::isNumber(string text, int index)
             break;
         }
     }
-    (i != index) &&
-        cout << "Number: " << text.substr(index, i) << endl;
+    if (i != index)
+    {
+        if (numFloat)
+            cout << "Real : " << text.substr(index, i - index) << endl;
+        else
+            cout << "Entero: " << text.substr(index, i - index) << endl;
+    }
     return i;
 }
 
