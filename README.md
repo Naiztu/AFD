@@ -27,7 +27,7 @@ _Una de las aplicaciones de los autómatas finitos determinísticos es la implem
 
 ## Algoritmo
 
-DFA.drawio.png
+https://github.com/Naiztu/AFD/blob/abc87610776e978d6287a92e5c23a4f069b66a8e/DFA.drawio.png
 
 ## Manual de uso
 
