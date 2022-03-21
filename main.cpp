@@ -6,8 +6,9 @@ using namespace std;
 #include "Number.h"
 #include "simbolo.h"
 
-int main()
+void lexerAritmetico(string archivo)
 {
+
     Variable val = Variable();
     Number num = Number();
     Simbolo sim = Simbolo();
@@ -21,18 +22,11 @@ int main()
     };
     TStatus state;
     state = q0;
-
-    string fileinput = "", line = "";
-    cout << "Nombre del archivo (con extension .txt): ";
-    cin >> fileinput;
-    fstream file = fstream(fileinput);
+    string line = "";
+    fstream file = fstream(archivo);
     int numline = 1;
-    if (".txt" != fileinput.substr(fileinput.size() - 4))
-    {
-        cout << "EL archivo tiene que ser de tipo .txt";
-    }
-    else if (file.is_open())
-    {
+
+    if (file.is_open())
         while (!file.eof())
         {
             int index = 0;
@@ -68,6 +62,18 @@ int main()
                 }
             }
         }
-    }
+}
+
+int main()
+{
+
+    string file = "";
+    cout << "Nombre del archivo (con extension .txt): ";
+    cin >> file;
+
+    if (".txt" == file.substr(file.size() - 4))
+        lexerAritmetico(file);
+    else
+        cout << "EL archivo tiene que ser de tipo .txt";
     return 0;
 }

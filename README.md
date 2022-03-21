@@ -27,13 +27,72 @@ _Una de las aplicaciones de los autómatas finitos determinísticos es la implem
 
 ## Algoritmo
 
-_Description del algoritmo_
+- **Variable:**
+  _Inicia con una letra (mayúscula/minúscula), para después tener N cantidad de letras(mayúscula/minúscula), números o guiones bajos._
+- **Numero:**
+  _El numero puede iniciar con negativo o punto o que directamente inicie con un digito, después tener N cantidad de dígitos y si es entero, que acabe. Para los decimales tiene que estar seguidos por mas números, para las exponenciales puede iniciar con negativo y ser decimal._
 
 ![Diagram](https://github.com/Naiztu/AFD/blob/master/DFA.png?raw=true)
 
 ## Manual de uso
 
-_**En proceso**_
+_El programa está hecho con el lenguaje C++, por lo que se necesita del compilador MinGW para que este pueda ser ejecutado. En la consola se necita ejecutar los siguientes comandos en la terminal ubicada en el directorio de los archivos:_
+
+1.- _Compilar el programa_
+
+<pre>
+<code>
+ g++ main.cpp -o main
+</code>
+</pre>
+
+2.- _Ejecutar el archivo resultado de la compilación_
+
+<pre>
+<code>
+main.exe
+</code>
+</pre>
+
+3.- _Escribir el nombre de del archivo de texto a utilizar, debe de estar en la misma carpeta que los archivos y tiene que terminar con la extensión .txt_
+
+<pre>
+<code>
+Nombre del archivo (con extension .txt):  prueba.txt
+</code>
+</pre>
+
+_La salida del programa será que por cada línea presentara el tipo de toquen y el resultado que es, un ejemplo seria el siguiente:_
+
+<pre>
+<code>
+LINE 1
+Variable : b
+Asignacion : =
+Entero : 7
+
+LINE 3
+Variable : a
+Asignacion : =
+Real : 32.4
+Multiplicacion : *
+Parentesis que abre : (
+Real : -8.6
+Resta : -
+Variable : b
+Parentesis que cierra : )
+Division : /
+Real : 6.1E-8
+
+LINE 5
+Variable : d
+Asignacion : =
+Variable : a
+Potencia : ^
+Variable : b
+Comentario: // Esto es un comentario
+</code>
+</pre>
 
 ## **Integrantes**
 
