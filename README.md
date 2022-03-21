@@ -32,7 +32,7 @@ _Una de las aplicaciones de los autómatas finitos determinísticos es la implem
 - **Numero:**
   _El numero puede iniciar con negativo o punto o que directamente inicie con un digito, después tener N cantidad de dígitos y si es entero, que acabe. Para los decimales tiene que estar seguidos por mas números, para las exponenciales puede iniciar con negativo y ser decimal._
 
-![Diagram](https://github.com/Naiztu/AFD/blob/master/DFA.png?raw=true)
+https://github.com/Naiztu/AFD/blob/32c34980abc29aee66dfac574b36de953474abd5/DFA.drawio.png
 
 ## Manual de uso
 
