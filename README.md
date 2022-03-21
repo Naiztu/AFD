@@ -36,9 +36,9 @@ https://github.com/Naiztu/AFD/blob/32c34980abc29aee66dfac574b36de953474abd5/DFA.
 
 ## Manual de uso
 
-_El programa está hecho con el lenguaje C++, por lo que se necesita del compilador MinGW para que este pueda ser ejecutado. En la consola se necita ejecutar los siguientes comandos en la terminal ubicada en el directorio de los archivos:_
+_El programa está hecho con el lenguaje C++, por lo que se necesita del compilador MinGW para que este pueda ser ejecutado. En la consola se necesita ejecutar los siguientes comandos en la terminal ubicada en el directorio de los archivos (Para ver el procedimiento a mayor detalle, revisar la documentación ubicada en el repositorio):
 
-1.- _Compilar el programa_
+1.- _Compilar el programa en la terminal_
 
 <pre>
 <code>
@@ -54,7 +54,7 @@ main.exe
 </code>
 </pre>
 
-3.- _Escribir el nombre de del archivo de texto a utilizar, debe de estar en la misma carpeta que los archivos y tiene que terminar con la extensión .txt_
+3.- _Escribir el nombre del archivo de texto a utilizar, debe de estar en la misma carpeta que los archivos y tiene que terminar con la extensión .txt_
 
 <pre>
 <code>
@@ -62,7 +62,7 @@ Nombre del archivo (con extension .txt):  prueba.txt
 </code>
 </pre>
 
-_La salida del programa será que por cada línea presentara el tipo de toquen y el resultado que es, un ejemplo seria el siguiente:_
+_La salida del programa será que por cada línea, este presente el tipo de tóken y el resultado de la identificación, un ejemplo seria el siguiente:_
 
 <pre>
 <code>
