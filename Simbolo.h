@@ -12,11 +12,11 @@ public:
     int isSimbolo(string, int);
 };
 
-int Simbolo::isSimbolo(string text, int index)
+int Simbolo::isSimbolo(string text, int index) //Estudio individual de cada símbolo recordado por la máquina
 {
     Number num = Number();
     int i = index;
-    switch (text[i])
+    switch (text[i]) //Se manejan todos los casos dependiendo de su caracter para hacer la impresión
     {
     case '=':
         i++;
@@ -35,7 +35,7 @@ int Simbolo::isSimbolo(string text, int index)
         cout << "Multiplicacion : *" << endl;
         break;
     case '/':
-        i++;
+        i++; //Si en la siguiente iteración se encuentra otra diagonal, es comentario y el resto se convierte en comentario también
         if (text[i] == '/')
         {
             cout << "Comentario: " << text.substr(index) << endl;
@@ -49,7 +49,7 @@ int Simbolo::isSimbolo(string text, int index)
         cout << "Suma : +" << endl;
         break;
     case '-':
-        i++;
+        i++; //Si el siguiente valor es un número, es un número negativo, no una resta
         if (isdigit(text[i]))
             i = num.isNumber(text, index);
         else
@@ -61,7 +61,7 @@ int Simbolo::isSimbolo(string text, int index)
         break;
     case '.':
         i++;
-        if (isdigit(text[i]))
+        if (isdigit(text[i])) //Si el siguiente valor es un número, es un número decimal, no un punto
             i = num.isNumber(text, index);
         else
             cout << "Punto : ." << endl;
