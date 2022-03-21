@@ -34,7 +34,7 @@ _Una de las aplicaciones de los autómatas finitos determinísticos es la implem
 - **Símbolo:** 
  _Identifica el símbolo que se encuentra en la iteración actual._
 
-https://github.com/Naiztu/AFD/blob/32c34980abc29aee66dfac574b36de953474abd5/DFA.drawio.png
+![diagram](https://github.com/Naiztu/AFD/blob/master/DFA.png?raw=true)
 
 ## Manual de uso
 
