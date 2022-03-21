@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class Number
+class Number //Definición de clase del Número
 {
 public:
     Number(){};
@@ -14,7 +14,7 @@ public:
 int Number::isNumber(string text, int index)
 {
     enum TStatus
-    {
+    { //7 casos identificados con autómatas
         q0,
         q1,
         q2,
@@ -25,14 +25,14 @@ int Number::isNumber(string text, int index)
         q7
     };
     TStatus state;
-    state = q0;
-    bool numFloat = false;
+    state = q0; //Se empieza en el primer caso
+    bool numFloat = false; //No se detecta que es decimal.
     int i = index, longitud = text.size();
-    while (state != q7)
+    while (state != q7) // Si no se lleva al séptimo caso, el while se repetirá
     {
         switch (state)
         {
-        case q0:
+        case q0: // Estudia si es un número negativo, si crashea con una letra/signo, si es un punto o si inicia directamente con un número.
             state = q1;
             if (text[i] == '-' || text[i] == '.')
             {
@@ -46,7 +46,7 @@ int Number::isNumber(string text, int index)
                 }
             }
             break;
-        case q1:
+        case q1: //Requiere uso de número, si no da error
             if (isdigit(text[i]))
                 state = q2;
             else
@@ -55,13 +55,13 @@ int Number::isNumber(string text, int index)
                 state = q7;
             }
             break;
-        case q2:
-            if (isdigit(text[i]))
+        case q2: //Da caminos disponibles para encontrar punto o exponencial
+            if (isdigit(text[i])) //Tiene que haber un número antes de las condiciones siguientes.
             {
                 i++;
                 if (text[i] == '.')
                 {
-                    numFloat = true;
+                    numFloat = true; //Se detecta que es decimal gracias al punto
                     i++;
                     state = q3;
                 }
@@ -74,7 +74,7 @@ int Number::isNumber(string text, int index)
             else
                 state = q7;
             break;
-        case q3:
+        case q3: //Exige un número después del punto
             if (isdigit(text[i]))
                 state = q5;
             else
@@ -83,7 +83,7 @@ int Number::isNumber(string text, int index)
                 cout << "Error in Line : " << text << endl;
             }
             break;
-        case q4:
+        case q4: // Revisión del dato que acompaña a la E/e, que puede ser digito reiterado u otro símbolo.
             if (text[i] == 'E' || text[i] == 'e')
             {
                 i++;
@@ -112,7 +112,7 @@ int Number::isNumber(string text, int index)
                 cout << "Error in Line : " << text << endl;
             }
             break;
-        case q5:
+        case q5: //Reiteración de número o exponencial ubicado después de un punto
             if (isdigit(text[i]))
             {
                 i++;
@@ -125,7 +125,7 @@ int Number::isNumber(string text, int index)
             else
                 state = q7;
             break;
-        case q6:
+        case q6: //Reiteración de número o punto ubicado después de un exponencial
             if (isdigit(text[i]))
             {
                 i++;
@@ -144,7 +144,7 @@ int Number::isNumber(string text, int index)
     }
     if (i != index)
     {
-        if (numFloat)
+        if (numFloat) //Detecta si se imprime real o entero
             cout << "Real : " << text.substr(index, i - index) << endl;
         else
             cout << "Entero : " << text.substr(index, i - index) << endl;
