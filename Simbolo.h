@@ -6,7 +6,7 @@
 using namespace std;
 
 class Simbolo
-{
+{ //Creación de clase Símbolo
 public:
     Simbolo(){};
     int isSimbolo(string, int);
